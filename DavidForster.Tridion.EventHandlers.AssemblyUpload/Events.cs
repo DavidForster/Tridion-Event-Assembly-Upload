@@ -8,7 +8,7 @@ using Tridion.ContentManager.Templating.Assembly;
 
 namespace DavidForster.Tridion.EventHandlers.AssemblyUpload
 {
-    [TcmExtension("Upload Assembly")]
+    [TcmExtension("Assembly Upload")]
     public class Events : TcmExtension
     {
         private const string AssemblyTemplateTypeName = "AssemblyTemplate";
