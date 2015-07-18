@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidForster.Tridion.EventHandlers.AssemblyUpload", "DavidForster.Tridion.EventHandlers.AssemblyUpload\DavidForster.Tridion.EventHandlers.AssemblyUpload.csproj", "{A3E33DFF-3B7C-4471-95F2-336B955DCF97}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidForster.Tridion.EventHandlers.AssemblyUpload", "AssemblyUpload\DavidForster.Tridion.EventHandlers.AssemblyUpload.csproj", "{A3E33DFF-3B7C-4471-95F2-336B955DCF97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates", "DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates\DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates.csproj", "{F0EC52AD-98B0-46D0-9910-4BDE559B73BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates", "TestTemplates\DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates.csproj", "{F0EC52AD-98B0-46D0-9910-4BDE559B73BE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
