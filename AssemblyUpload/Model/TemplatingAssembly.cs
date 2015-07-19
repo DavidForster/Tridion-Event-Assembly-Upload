@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Tridion.ContentManager.CommunicationManagement;
 using Tridion.ContentManager.Templating.Assembly;
 
@@ -12,7 +10,7 @@ namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.Model
     class TemplatingAssembly
     {
         private readonly Assembly _assembly;
-        private List<CSharpTemplateBuildingBlock> _buildingBlocks; 
+        private List<CSharpTemplateBuildingBlock> _buildingBlocks;
 
         public TemplatingAssembly(TemplateBuildingBlock templateBuildingBlock)
         {
@@ -22,7 +20,7 @@ namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.Model
 
         public String Id { get; private set; }
 
-        public List<CSharpTemplateBuildingBlock> CSharpTemplateBuildingBlocks {
+        public IEnumerable<CSharpTemplateBuildingBlock> CSharpTemplateBuildingBlocks {
             get
             {
                 if (_buildingBlocks == null)
@@ -35,6 +33,8 @@ namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.Model
 
         private void LoadBuildingBlocks()
         {
+            _buildingBlocks = new List<CSharpTemplateBuildingBlock>();
+
             foreach (var type in _assembly.GetTypes())
             {
                 //If the class is not concrete
