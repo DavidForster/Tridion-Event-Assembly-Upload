@@ -1,11 +1,8 @@
-﻿using System;
-using System.Linq;
-using System.Reflection;
-using DavidForster.Tridion.EventHandlers.AssemblyUpload.Model;
+﻿using DavidForster.Tridion.EventHandlers.AssemblyUpload.Model;
+using System;
 using Tridion.ContentManager.CommunicationManagement;
 using Tridion.ContentManager.Extensibility;
 using Tridion.ContentManager.Extensibility.Events;
-using Tridion.ContentManager.Templating.Assembly;
 
 namespace DavidForster.Tridion.EventHandlers.AssemblyUpload
 {
