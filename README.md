@@ -4,7 +4,23 @@ An SDL Tridion event handler to supersede `TcmUploadAssembly.exe`
 
 ## Synopsis
 
-An event handler for SDL Tridion that responds to saves of .Net assembly TBBs and creates the corresponding C# "stub" TBBs, removing the need to upload code using the `TcmUploadAssembly.exe` command line tool and allowing easier uploading directly in the Content Management Explorer.
+An event handler for SDL Tridion that responds to saves of .Net assembly TBBs and creates the corresponding C# "stub" TBBs, removing the need to upload code using the `TcmUploadAssembly.exe` command line tool and allowing easier uploading directly in the Content Management Explorer or even WebDAV.
+
+## Usage
+
+Once installed, you no longer need to upload your compiled .Net assembly TBBs using `TcmUploadAssembly.exe`.
+
+### Content Manager Explorer
+
+Browse to the location where you wish to store your templates and create a new Template Building Block. In the Source tab, change the Template Type to .Net Assembly and you will be given the option to Load from Disk. Just choose your DLL then Save and Close.
+
+### WebDAV
+
+If you have a WebDAV connection to your Content Manager Server, you can change the DLL's file extension to .tbbasm and simply copy it across.
+
+### Core Service
+
+The Event Handler should also take care of any .Net Assembly Template Building Blocks created via Core Service.
 
 ## Build Requirements
 
