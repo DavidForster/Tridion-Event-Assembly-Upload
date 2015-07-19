@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Events.cs" />
+    <Compile Include="Model\CSharpTemplateBuildingBlock.cs" />
+    <Compile Include="Model\TemplatingAssembly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

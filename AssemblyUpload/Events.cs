@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using DavidForster.Tridion.EventHandlers.AssemblyUpload.Model;
 using Tridion.ContentManager.CommunicationManagement;
 using Tridion.ContentManager.Extensibility;
 using Tridion.ContentManager.Extensibility.Events;
@@ -26,34 +27,20 @@ namespace DavidForster.Tridion.EventHandlers.AssemblyUpload
             if (subject.TemplateType != AssemblyTemplateTypeName)
                 return;
 
-            //Load the assembly
-            var templatingAssembly = Assembly.Load(subject.BinaryContent.GetByteArray());
+            var templatingAssembly = new TemplatingAssembly(subject);
 
-            //For each class in the assembly
-            foreach (var type in templatingAssembly.GetTypes())
+            foreach (var cSharpTemplateBuildingBlock in templatingAssembly.CSharpTemplateBuildingBlocks)
             {
-                //If the class is not concrete
-                if (type.IsAbstract)
-                    continue;
-
-                //If the class does not implement ITemplate
-                if (!(type.GetInterfaces().Contains(typeof(ITemplate))))
-                    continue;
-
-                //Get the template title if specified or just use the class name
-                var titleAttribute = type.GetCustomAttribute<TcmTemplateTitle>();
-                var templateTitle = titleAttribute == null ? type.Name : titleAttribute.Title;
-
                 //If a TBB already exists
-                if (subject.Session.IsExistingObject(String.Concat(subject.OrganizationalItem.WebDavUrl, "/", templateTitle, ".", "tbbcs")))
+                if (subject.Session.IsExistingObject(String.Concat(subject.OrganizationalItem.WebDavUrl, "/", cSharpTemplateBuildingBlock.Title, ".", "tbbcs")))
                     continue;
 
                 //Create a new C# TBB
                 var templateBuildingBlock = new TemplateBuildingBlock(subject.Session, subject.OrganizationalItem.Id)
                 {
-                    Title = templateTitle,
+                    Title = cSharpTemplateBuildingBlock.Title,
                     TemplateType = CSharpTemplateTypeName,
-                    Content = String.Format(CSharpTemplateBuildingBlockContent, subject.Id, type.FullName)
+                    Content = String.Format(CSharpTemplateBuildingBlockContent, templatingAssembly.Id, cSharpTemplateBuildingBlock.ClassName)
                 };
 
                 templateBuildingBlock.Save(true);
