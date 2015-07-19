@@ -46,8 +46,14 @@
     <Compile Include="AbstractTemplate.cs" />
     <Compile Include="ConcreteTemplate.cs" />
     <Compile Include="PlainTemplate.cs" />
+    <Compile Include="TemplateWithEmbeddedResourceParameterSchema.cs" />
     <Compile Include="TemplateWithTitleAttributeSpecified.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ParameterSchemas\Embedded Resource Paramer Schema.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

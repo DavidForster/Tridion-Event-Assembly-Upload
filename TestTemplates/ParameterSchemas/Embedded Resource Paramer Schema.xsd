@@ -1,0 +1,23 @@
+﻿<xsd:schema elementFormDefault="qualified" targetNamespace="uuid:d2b0996c-fd32-46f4-b4ee-d6d9ffff3585" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="uuid:d2b0996c-fd32-46f4-b4ee-d6d9ffff3585" xmlns:tcmi="http://www.tridion.com/ContentManager/5.0/Instance">
+  <xsd:import namespace="http://www.tridion.com/ContentManager/5.0/Instance" schemaLocation="/webdav/cm_xml_inst.xsd" />
+  <xsd:annotation>
+    <xsd:appinfo>
+      <tcm:Labels xmlns:tcm="http://www.tridion.com/ContentManager/5.0">
+        <tcm:Label ElementName="test" Metadata="false">Test</tcm:Label>
+      </tcm:Labels>
+    </xsd:appinfo>
+  </xsd:annotation>
+  <xsd:element name="Parameters">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="test" minOccurs="0" maxOccurs="1" type="xsd:normalizedString">
+          <xsd:annotation>
+            <xsd:appinfo>
+              <tcm:ExtensionXml xmlns:tcm="http://www.tridion.com/ContentManager/5.0" />
+            </xsd:appinfo>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>
