@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ParameterSchemas\Embedded Resource Paramer Schema.xsd">
+    <EmbeddedResource Include="ParameterSchemas\Embedded Resource Parameter Schema.xsd">
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

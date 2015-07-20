@@ -4,7 +4,7 @@ using Tridion.ContentManager.Templating.Assembly;
 
 namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates
 {
-    [TcmTemplateParameterSchema("source:DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates.ParameterSchemas.Embedded Resource Paramer Schema.xsd")]
+    [TcmTemplateParameterSchema("resource:DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates.ParameterSchemas.Embedded Resource Parameter Schema.xsd")]
     class TemplateWithEmbeddedResourceParameterSchema : ITemplate
     {
         public void Transform(Engine engine, Package package)
