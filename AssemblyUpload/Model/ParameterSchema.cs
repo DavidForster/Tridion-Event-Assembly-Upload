@@ -10,13 +10,13 @@ namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.Model
 {
     class ParameterSchema
     {
-        public String ResourceName { get; private set; }
+        private String ResourceName { get; set; }
         private String Content { get; set; }
 
         public String Title {
             get
             {
-                return Regex.Match(ResourceName, @"[\w ]*.xsd$").Value;
+                return Regex.Match(ResourceName, @"[\w ]*(?=\.xsd$)").Value;
             }
         }
 

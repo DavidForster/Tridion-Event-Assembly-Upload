@@ -1,4 +1,5 @@
-﻿using DavidForster.Tridion.EventHandlers.AssemblyUpload.Model;
+﻿using System.Text.RegularExpressions;
+using DavidForster.Tridion.EventHandlers.AssemblyUpload.Model;
 using System;
 using Tridion.ContentManager.CommunicationManagement;
 using Tridion.ContentManager.ContentManagement;
@@ -57,17 +58,20 @@ namespace DavidForster.Tridion.EventHandlers.AssemblyUpload
                         Content = String.Format(CSharpTemplateBuildingBlockContent, templatingAssembly.Id, cSharpTemplateBuildingBlock.ClassName)
                     };
 
-                    /*if (cSharpTemplateBuildingBlock.ParameterSchema != null)
+                    if (cSharpTemplateBuildingBlock.ParameterSchema != null)
                     {
                         if (cSharpTemplateBuildingBlock.ParameterSchema.ToLower().StartsWith("/webdav/") || cSharpTemplateBuildingBlock.ParameterSchema.ToLower().StartsWith("tcm:"))
                         {
-                            // Something
+                            var parameterSchema = (Schema) session.GetObject(cSharpTemplateBuildingBlock.ParameterSchema);
+                            templateBuildingBlock.ParameterSchema = parameterSchema;
                         }
                         else if (cSharpTemplateBuildingBlock.ParameterSchema.ToLower().StartsWith("resource:"))
                         {
-                            // Something else
+                            var parameterSchemaUrl = String.Concat(subject.OrganizationalItem.WebDavUrl, "/", Regex.Match(cSharpTemplateBuildingBlock.ParameterSchema, @"[\w ]*(?=\.xsd$)").Value, ".xsd");
+                            var parameterSchema = (Schema)session.GetObject(parameterSchemaUrl);
+                            templateBuildingBlock.ParameterSchema = parameterSchema;
                         }
-                    }*/
+                    }
 
                     templateBuildingBlock.Save(true);
                 }
