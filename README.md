@@ -22,14 +22,9 @@ If you have a WebDAV connection to your Content Manager Server, you can change t
 
 The Event Handler should also take care of any .Net Assembly Template Building Blocks created via Core Service.
 
-## Build Requirements
+## Download
 
-You will need to place the following non-distributable client assemblies from your SDL Tridion installation into the /References directory
-
- - `Tridion.Common.dll`
- - `Tridion.ContentManager.Common.dll`
- - `Tridion.ContentManager.dll`
- - `Tridion.ContentManager.Templating.dll`
+To download the latest official release in source or compiled form, see the project's [releases page](https://github.com/DavidForster/Tridion-Event-Assembly-Upload/releases) on GitHub.
 
 ## Installation
 
@@ -38,6 +33,15 @@ Just like a regular event handler, copy the compiled assembly to your Content Ma
      <add assemblyFileName="X:\FullPathTo\DavidForster.Tridion.EventHandlers.AssemblyUpload.dll"/>
 
 Restart your Tridion Content Manager Service Host service after installation and make sure that the event handler is loaded by checking your Tridion event log.
+
+## Build Requirements
+
+If you wish to build the Event Handler from source, you will need to place the following non-distributable client assemblies from your SDL Tridion installation into the /References directory
+
+ - `Tridion.Common.dll`
+ - `Tridion.ContentManager.Common.dll`
+ - `Tridion.ContentManager.dll`
+ - `Tridion.ContentManager.Templating.dll`
 
 ## License
 
