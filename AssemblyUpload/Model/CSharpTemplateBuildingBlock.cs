@@ -14,10 +14,18 @@ namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.Model
         {
             Title = GetTitle(type);
             ClassName = type.FullName;
+            ParameterSchema = GetParameterSchema(type);
+        }
+
+        private string GetParameterSchema(Type type)
+        {
+            var parameterSchemaAttribute = type.GetCustomAttribute<TcmTemplateParameterSchema>();
+            return parameterSchemaAttribute != null ? parameterSchemaAttribute.ParameterSchema : null;
         }
 
         public String Title { get; private set; }
         public String ClassName { get; private set; }
+        public String ParameterSchema { get; private set; }
 
         private static string GetTitle(Type type)
         {

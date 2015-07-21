@@ -27,6 +27,7 @@ The Event Handler should also take care of any .Net Assembly Template Building B
 You will need to place the following non-distributable client assemblies from your SDL Tridion installation into the /References directory
 
  - `Tridion.Common.dll`
+ - `Tridion.ContentManager.Common.dll`
  - `Tridion.ContentManager.dll`
  - `Tridion.ContentManager.Templating.dll`
 

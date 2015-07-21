@@ -1,5 +1,6 @@
 ## Ignore non-distributable SDL Tridion assemblies
 /References/Tridion.Common.dll
+/References/Tridion.ContentManager.Common.dll
 /References/Tridion.ContentManager.Templating.dll
 /References/Tridion.ContentManager.dll
 

@@ -1,6 +1,7 @@
 ﻿using DavidForster.Tridion.EventHandlers.AssemblyUpload.Model;
 using System;
 using Tridion.ContentManager.CommunicationManagement;
+using Tridion.ContentManager.ContentManagement;
 using Tridion.ContentManager.Extensibility;
 using Tridion.ContentManager.Extensibility.Events;
 
@@ -21,25 +22,55 @@ namespace DavidForster.Tridion.EventHandlers.AssemblyUpload
             if (!subject.IsAssemblyTemplateBuildingBlock())
                 return;
 
-            var templatingAssembly = new TemplatingAssembly(subject);
-
-            var session = subject.Session;
-
-            foreach (var cSharpTemplateBuildingBlock in templatingAssembly.CSharpTemplateBuildingBlocks)
+            using (var session = subject.Session)
             {
-                //If a TBB already exists
-                if (session.IsExistingObject(String.Concat(subject.OrganizationalItem.WebDavUrl, "/", cSharpTemplateBuildingBlock.Title, ".", "tbbcs")))
-                    continue;
+                var templatingAssembly = new TemplatingAssembly(subject);
 
-                //Create a new C# TBB
-                var templateBuildingBlock = new TemplateBuildingBlock(session, subject.OrganizationalItem.Id)
+                foreach (var embeddedParameterSchema in templatingAssembly.EmbeddedParameterSchemas)
                 {
-                    Title = cSharpTemplateBuildingBlock.Title,
-                    TemplateType = TemplateTypes.CSharpTemplate,
-                    Content = String.Format(CSharpTemplateBuildingBlockContent, templatingAssembly.Id, cSharpTemplateBuildingBlock.ClassName)
-                };
+                    if (session.IsExistingObject(String.Concat(subject.OrganizationalItem.WebDavUrl, "/", embeddedParameterSchema.Title, ".xsd")))
+                        continue;
 
-                templateBuildingBlock.Save(true);
+                    var parameterSchema = new Schema(session, subject.OrganizationalItem.Id)
+                    {
+                        Title = embeddedParameterSchema.Title,
+                        Description = embeddedParameterSchema.Title,
+                        Purpose = SchemaPurpose.TemplateParameters,
+                        RootElementName = "Parameters",
+                        Xsd = embeddedParameterSchema.Xsd
+                    };
+
+                    parameterSchema.Save(true);
+                }
+
+                foreach (var cSharpTemplateBuildingBlock in templatingAssembly.CSharpTemplateBuildingBlocks)
+                {
+                    //If a TBB already exists
+                    if (session.IsExistingObject(String.Concat(subject.OrganizationalItem.WebDavUrl, "/", cSharpTemplateBuildingBlock.Title, ".tbbcs")))
+                        continue;
+
+                    //Create a new C# TBB
+                    var templateBuildingBlock = new TemplateBuildingBlock(session, subject.OrganizationalItem.Id)
+                    {
+                        Title = cSharpTemplateBuildingBlock.Title,
+                        TemplateType = TemplateTypes.CSharpTemplate,
+                        Content = String.Format(CSharpTemplateBuildingBlockContent, templatingAssembly.Id, cSharpTemplateBuildingBlock.ClassName)
+                    };
+
+                    /*if (cSharpTemplateBuildingBlock.ParameterSchema != null)
+                    {
+                        if (cSharpTemplateBuildingBlock.ParameterSchema.ToLower().StartsWith("/webdav/") || cSharpTemplateBuildingBlock.ParameterSchema.ToLower().StartsWith("tcm:"))
+                        {
+                            // Something
+                        }
+                        else if (cSharpTemplateBuildingBlock.ParameterSchema.ToLower().StartsWith("resource:"))
+                        {
+                            // Something else
+                        }
+                    }*/
+
+                    templateBuildingBlock.Save(true);
+                }
             }
         }
     }
