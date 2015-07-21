@@ -6,7 +6,7 @@ namespace DavidForster.Tridion.EventHandlers.AssemblyUpload
     {
         public static bool IsAssemblyTemplateBuildingBlock(this TemplateBuildingBlock templateBuildingBlock)
         {
-            return templateBuildingBlock.TemplateType != TemplateTypes.AssemblyTemplate;
+            return templateBuildingBlock.TemplateType == TemplateTypes.AssemblyTemplate;
         }
     }
 }
