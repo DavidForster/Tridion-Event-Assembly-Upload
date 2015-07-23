@@ -1,6 +1,6 @@
 # Tridion Assembly Upload Event Handler
 
-An SDL Tridion event handler to supersede `TcmUploadAssembly.exe`
+An SDL Tridion event handler alternative to `TcmUploadAssembly.exe`
 
 ## Synopsis
 
