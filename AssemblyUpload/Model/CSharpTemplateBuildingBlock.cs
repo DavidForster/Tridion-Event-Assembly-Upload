@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tridion.ContentManager.Templating.Assembly;
 
-namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.Model
+namespace Tridion.EventHandlers.AssemblyUpload.Model
 {
     class CSharpTemplateBuildingBlock
     {

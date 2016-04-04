@@ -1,6 +1,6 @@
 ﻿using Tridion.ContentManager.CommunicationManagement;
 
-namespace DavidForster.Tridion.EventHandlers.AssemblyUpload
+namespace Tridion.EventHandlers.AssemblyUpload
 {
     static class ExtensionMethods
     {

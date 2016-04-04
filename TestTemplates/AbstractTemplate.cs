@@ -1,7 +1,7 @@
 ﻿using Tridion.ContentManager.Templating;
 using Tridion.ContentManager.Templating.Assembly;
 
-namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates
+namespace Tridion.EventHandlers.AssemblyUpload.TestTemplates
 {
     public abstract class AbstractTemplate : ITemplate
     {

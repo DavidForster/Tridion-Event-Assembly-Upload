@@ -1,12 +1,12 @@
 ﻿using System.Text.RegularExpressions;
-using DavidForster.Tridion.EventHandlers.AssemblyUpload.Model;
+using Tridion.EventHandlers.AssemblyUpload.Model;
 using System;
 using Tridion.ContentManager.CommunicationManagement;
 using Tridion.ContentManager.ContentManagement;
 using Tridion.ContentManager.Extensibility;
 using Tridion.ContentManager.Extensibility.Events;
 
-namespace DavidForster.Tridion.EventHandlers.AssemblyUpload
+namespace Tridion.EventHandlers.AssemblyUpload
 {
     [TcmExtension("Assembly Upload")]
     public class Events : TcmExtension

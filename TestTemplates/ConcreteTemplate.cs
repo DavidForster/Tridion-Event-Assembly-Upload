@@ -1,7 +1,7 @@
 ﻿using System;
 using Tridion.ContentManager.Templating;
 
-namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.TestTemplates
+namespace Tridion.EventHandlers.AssemblyUpload.TestTemplates
 {
     public class ConcreteTemplate : AbstractTemplate
     {

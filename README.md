@@ -30,7 +30,7 @@ To download the latest official release in source or compiled form, see the proj
 
 Just like a regular event handler, copy the compiled assembly to your Content Management Server and add a new element to the `<extensions>` element of your `Tridion.ContentManager.config` file as follows
 
-     <add assemblyFileName="X:\FullPathTo\DavidForster.Tridion.EventHandlers.AssemblyUpload.dll"/>
+     <add assemblyFileName="X:\FullPathTo\Tridion.EventHandlers.AssemblyUpload.dll"/>
 
 Restart your Tridion Content Manager Service Host service after installation and make sure that the event handler is loaded by checking your Tridion event log.
 

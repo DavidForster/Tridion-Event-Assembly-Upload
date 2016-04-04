@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DavidForster.Tridion.EventHandlers.AssemblyUpload
+namespace Tridion.EventHandlers.AssemblyUpload
 {
     static class TemplateTypes
     {

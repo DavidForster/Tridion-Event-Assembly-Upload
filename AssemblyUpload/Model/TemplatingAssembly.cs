@@ -6,7 +6,7 @@ using System.Reflection;
 using Tridion.ContentManager.CommunicationManagement;
 using Tridion.ContentManager.Templating.Assembly;
 
-namespace DavidForster.Tridion.EventHandlers.AssemblyUpload.Model
+namespace Tridion.EventHandlers.AssemblyUpload.Model
 {
     class TemplatingAssembly
     {
